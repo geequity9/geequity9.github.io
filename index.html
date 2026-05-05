@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GE Equity SIA — Biznesa un IT konsultācijas</title>
+  <style>
+    :root{
+      --primary:#0b6b8f;
+      --accent:#ffb300;
+      --bg:#0f1720;
+      --card:#0b1220;
+      --muted:#98a0a6;
+      --glass: rgba(255,255,255,0.04);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #071018 0%, #081423 50%, #041018 100%);
+      color:#e8f1f6;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.5;
+    }
+    a{color:var(--accent); text-decoration:none}
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(3,11,18,0.6), rgba(3,11,18,0.35));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .nav{
+      max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:18px; padding:14px;
+    }
+    .logo{font-weight:700; letter-spacing:0.6px; font-size:18px; color:var(--primary)}
+    nav{margin-left:auto; display:flex; gap:12px; align-items:center}
+    nav a{padding:8px 12px; border-radius:8px; color:#cfeaf7; font-size:14px}
+    nav a:hover{background:rgba(255,255,255,0.02)}
+    .hero{
+      background-image: linear-gradient(135deg, rgba(11,107,143,0.18), rgba(0,0,0,0.18)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=6b5d8f5f2a1b2c1d3e4f6a7b8c9d0e1f');
+      background-size:cover; background-position:center;
+      padding:72px 16px;
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    .hero .container{max-width:1100px; margin:0 auto; display:flex; gap:32px; align-items:center}
+    .hero-left{flex:1; padding:28px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:12px}
+    h1{margin:0 0 12px; font-size:34px; color:#e9fbff}
+    .lead{color:var(--muted); margin:0 0 18px; font-size:16px}
+    .lead .highlight{
+      background:var(--accent);
+      color:#08121a;
+      padding:6px 10px;
+      border-radius:8px;
+      font-weight:600;
+      display:inline-block;
+    }
+    .cta{display:inline-block; background:var(--accent); color:#08121a; font-weight:700; padding:12px 18px; border-radius:10px}
+    .hero-right{width:420px; border-radius:12px; overflow:hidden; box-shadow: 0 8px 30px rgba(2,6,10,0.6); border-right:8px solid rgba(255,179,0,0.14)}
+    .card-img{width:100%; height:280px; object-fit:cover; display:block}
+    main{max-width:1100px; margin:36px auto; padding:0 16px; display:flex; flex-direction:column; gap:40px}
+    section.card{background:var(--card); border-radius:12px; padding:22px; box-shadow: 0 6px 18px rgba(2,6,10,0.6)}
+    .grid{display:grid; gap:18px}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    .cols-2{grid-template-columns:repeat(2,1fr)}
+    .service{background:var(--glass); padding:18px; border-radius:10px}
+    .service h3{margin:0 0 8px; color:#dff6ff}
+    .service p{margin:0; color:var(--muted); font-size:14px}
+    .advantages{display:flex; flex-direction:column; gap:14px}
+    .adv-item{display:flex; gap:12px; align-items:flex-start}
+    .adv-item strong{display:inline-block;width:140px;color:var(--accent)}
+    .process{display:flex; flex-direction:column; gap:14px}
+    .step{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:14px; border-radius:10px}
+    .about{display:grid; grid-template-columns:1fr 360px; gap:18px; align-items:start}
+    .about p{color:var(--muted)}
+    .values{display:flex; gap:12px; flex-wrap:wrap}
+    .value{flex:1; min-width:220px; background:rgba(255,255,255,0.02); padding:14px; border-radius:8px}
+    .faq-item{margin-bottom:10px}
+    .contact-grid{display:grid; grid-template-columns:1fr 380px; gap:18px}
+    label{display:block; font-size:13px; margin-bottom:6px; color:#cfeaf7}
+    input, textarea{width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:#eaf8ff}
+    .error{color:#ffb3a6; font-size:13px; margin-top:6px}
+    .success{color:#b7ffd6; font-size:14px; margin-top:8px}
+    footer{padding:26px 16px; border-top:1px solid rgba(255,255,255,0.03); margin-top:20px}
+    .footer-inner{max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; gap:12px; align-items:center}
+    .socials a{margin-left:8px; color:var(--muted)}
+    img.responsive{max-width:100%; height:auto; display:block; border-radius:8px}
+    @media (max-width:900px){
+      .about{grid-template-columns:1fr}
+      .hero-right{display:none}
+      .cols-3{grid-template-columns:repeat(1,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">GE Equity SIA</div>
+      <nav>
+        <a href="#pakalpojumi">Pakalpojumi</a>
+        <a href="#prieksrocibas">Priekšrocības</a>
+        <a href="#process">Darba process</a>
+        <a href="#par-mums">Par mums</a>
+        <a href="#misija">Misija</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontakti">Kontakti</a>
+        <a href="#kontaktu-forma" class="cta">Pasūtīt konsultāciju</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="sākums" aria-label="Hero">
+    <div class="container">
+      <div class="hero-left">
+        <h1>GE Equity SIA — Biznesa un IT konsultācijas</h1>
+        <p class="lead">
+          <span class="highlight">Mēs apvienojam biznesa atbalsta pieredzi ar tehnisko ekspertīzi, lai palīdzētu uzņēmumiem Rīgā un Eiropā optimizēt procesus, attīstīt IT risinājumus un pieņemt pārdomātus finanšu lēmumus.</span>
+        </p>
+        <a class="cta" href="#kontaktu-forma">Pasūtīt konsultāciju</a>
+      </div>
+      <div class="hero-right" aria-hidden="false">
+        <img class="card-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=9a2b6d7f4c1e8b7a2d3c4f5e6a7b8c9d" alt="Komanda, kas strādā pie IT risinājumiem">
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- Pakalpojumi -->
+    <section id="pakalpojumi" class="card">
+      <h2>Pakalpojumi</h2>
+      <p class="lead">Pārskatāmi pakalpojumi, kas palīdz uzņēmumiem augt — no administratīvā atbalsta līdz tehniskajām konsultācijām un ieguldījumu padomiem.</p>
+      <div class="grid cols-3" style="margin-top:16px;">
+        <div class="service">
+          <h3>Biznesa atbalsta pakalpojumi</h3>
+          <p>Administratīvais atbalsts, dokumentu pārvaldība, biznesa procesa optimizācija un ārpakalpojumu risinājumi maziem un vidējiem uzņēmumiem.</p>
+        </div>
+        <div class="service">
+          <h3>Administratīvais atbalsts un atkritumu pārvaldība</h3>
+          <p>Efektīvs administratīvais atbalsts un atkritumu pārvaldības plāni, kas samazina izmaksas un nodrošina atbilstību normatīviem.</p>
+        </div>
+        <div class="service">
+          <h3>Tehniskās konsultācijas</h3>
+          <p>Tehniskie auditi, arhitektūras pārskati, projektēšana un IT infrastruktūras optimizācija.</p>
+        </div>
+
+        <div class="service">
+          <h3>Investīciju padomi</h3>
+          <p>Neitrāla investīciju analīze, riska novērtējums un portfeļa stratēģijas uzņēmumiem un privātiem investoriem.</p>
+        </div>
+        <div class="service">
+          <h3>Finanšu konsultācijas</h3>
+          <p>Finanšu plānošana, naudas plūsmas pārvaldība, budžeta izstrāde un atskaišu sagatavošana lēmumu pieņemšanai.</p>
+        </div>
+        <div class="service">
+          <h3>Programmatūras un lietotņu konsultācijas</h3>
+          <p>Programmatūras izstrādes konsultācijas, prasību analīze, produktu plānošana un lietotāja pieredzes stratēģija.</p>
+        </div>
+
+        <div class="service">
+          <h3>IT atbalsts</h3>
+          <p>24/7 IT atbalsts, serveru un tīkla uzturēšana, attālināta palīdzība un SLA risinājumi uzņēmumiem.</p>
+        </div>
+        <div class="service">
+          <h3>Specializēti projekti</h3>
+          <p>Integrācijas, automatizācijas, datu analīze un digitālā transformācija klienta mērķu sasniegšanai.</p>
+        </div>
+        <div class="service">
+          <h3>Apmācības un atbalsts</h3>
+          <p>Darbinieku apmācības, procesu ieviešana un ilgtermiņa tehniskā atbalsta plāni.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Priekšrocības -->
+    <section id="prieksrocibas" class="card">
+      <h2>Priekšrocības — Kāpēc izvēlēties mūs</h2>
+      <div class="advantages" style="margin-top:12px;">
+        <div class="adv-item"><strong>Integrēts pakalpojums:</strong><div>Mēs apvienojam biznesa procesu izpratni ar tehnisko kompetenci, nodrošinot visaptverošus risinājumus.</div></div>
+        <div class="adv-item"><strong>Ekspertu komanda:</strong><div>Speciālisti ar pieredzi IT, finansēs un administratīvajā atbalstā.</div></div>
+        <div class="adv-item"><strong>Fokusēti uz rezultātu:</strong><div>Konkrēti KPI un mērījami rezultāti, lai jūsu investīcija atmaksātos.</div></div>
+        <div class="adv-item"><strong>Drošība un atbilstība:</strong><div>Datu aizsardzība, nozaru prasību ievērošana un pārskatāmi procesi.</div></div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="card">
+      <h2>Darba process</h2>
+      <div class="process" style="margin-top:12px;">
+        <div class="step"><strong>1. Ievads un izpratne</strong> — Sākotnējā konsultācija, uzņēmuma vajadzību un mērķu definēšana.</div>
+        <div class="step"><strong>2. Audits</strong> — Tehniskais un biznesa audits, riska un iespēju analīze.</div>
+        <div class="step"><strong>3. Stratēģijas izstrāde</strong> — Risinājuma arhitektūra, prioritāšu noteikšana un budžeta plāns.</div>
+        <div class="step"><strong>4. Ieviešana</strong> — Projektu vadība, izstrāde, integrācija un testēšana.</div>
+        <div class="step"><strong>5. Atbalsts un optimizācija</strong> — SLA, uzraudzība un nepārtraukta uzlabojumu īstenošana.</div>
+      </div>
+    </section>
+
+    <!-- Par mums -->
+    <section id="par-mums" class="card">
+      <h2>Par GE Equity SIA</h2>
+      <div class="about" style="margin-top:12px;">
+        <div>
+          <p>GE Equity SIA ir specializēts konsultāciju uzņēmums, kas nodrošina integrētus risinājumus biznesa atbalstam un IT. Mūsu komanda strādā ar uzņēmumiem dažādos attīstības posmos — no stratēģijas izstrādes līdz tehniskai ieviešanai un ilgtermiņa atbalstam.</p>
+          <p>Mēs strādājam caurspīdīgi, orientēti uz rezultātu un nodrošinām praktiskus, izmērāmas ieguvumus mūsu klientiem.</p>
+        </div>
+        <aside>
+          <img class="responsive" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2b7a6c4d5f8e9a1b3c4d5e6f7a8b9c0d" alt="Birojs un komanda">
+          <p style="color:var(--muted); font-size:13px; margin-top:8px">Birojs: 20 Aspazijas bulvāris, Rīga, LV-1050</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Misija -->
+    <section id="misija" class="card">
+      <h2>Mūsu misija</h2>
+      <p class="lead" style="margin-top:8px">Palīdzēt uzņēmumiem sasniegt ilgtspējīgu izaugsmi, apvienojot operatīvo efektivitāti, tehnoloģiju spēju palielināšanu un pamatotas finanšu stratēģijas.</p>
+    </section>
+
+    <!-- Vērtības -->
+    <section id="vertibas" class="card">
+      <h2>Mūsu vērtības</h2>
+      <div class="values" style="margin-top:12px;">
+        <div class="value"><strong>Caurspīdīgums</strong><p style="color:var(--muted); margin-top:8px">Atklāta komunikācija un skaidri mērījumi.</p></div>
+        <div class="value"><strong>Atbildība</strong><p style="color:var(--muted); margin-top:8px">Mēs atbildam par rezultātu un ilgtspējību.</p></div>
+        <div class="value"><strong>Praktiskums</strong><p style="color:var(--muted); margin-top:8px">Risinājumi, kas darbojas ikdienā.</p></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="card">
+      <h2>FAQ — Biežāk uzdotie jautājumi</h2>
+      <div style="margin-top:12px;">
+        <div class="faq-item">
+          <strong>Kādas nozares jūs apkalpojat?</strong>
+          <p style="color:var(--muted); margin-top:6px">Mēs strādājam ar dažāda izmēra uzņēmumiem IT, finanšu, ražošanas un pakalpojumu nozarēs.</p>
+        </div>
+        <div class="faq-item">
+          <strong>Cik ilgi parasti ilgst projekts?</strong>
+          <p style="color:var(--muted); margin-top:6px">Atkarībā no apjoma — no pāris nedēļām (auditam/analīzei) līdz vairākiem mēnešiem (pilnām ieviešanām).</p>
+        </div>
+        <div class="faq-item">
+          <strong>Vai nodrošināt ilgtermiņa atbalstu?</strong>
+          <p style="color:var(--muted); margin-top:6px">Jā — piedāvājam SLA bāzētus atbalsta pakalpojumus un periodisku optimizāciju.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Papildu attēls bloks -->
+    <section class="card">
+      <h2>Projekti un gadījumu izpēte</h2>
+      <div style="margin-top:12px;">
+        <img class="responsive" src="https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=4c3d2b1a0f9e8d7c6b5a4f3e2d1c0b9a" alt="Projekta komanda" />
+        <p style="color:var(--muted); margin-top:10px">Reāli gadījumi: procesu digitalizācija, IT migrācijas un finanšu konsultācijas, kas samazināja izmaksas un paātrināja darbplūsmu.</p>
+      </div>
+    </section>
+
+    <!-- Kontakti un kontakti forma -->
+    <section id="kontakti" class="card">
+      <h2>Kontakti</h2>
+      <div class="contact-grid" style="margin-top:12px;">
+        <div>
+          <p style="color:var(--muted)">Adrese: 20 Aspazijas bulvāris, Rīga, LV-1050, Latvia</p>
+          <p style="color:var(--muted)">E-pasts: <a href="mailto:info@geequity.org">info@geequity.org</a></p>
+
+          <h3 style="margin-top:18px;">Aicinājums — Sazinieties ar mums</h3>
+          <p style="color:var(--muted)">Pasūtiet bezmaksas sākotnējo konsultāciju, lai novērtētu iespējas optimizēt jūsu uzņēmuma darbību.</p>
+          <a class="cta" href="#kontaktu-forma">Saņemt konsultāciju</a>
+        </div>
+
+        <aside id="kontaktu-forma">
+          <form id="contactForm" novalidate>
+            <div>
+              <label for="name">Vārds, uzvārds</label>
+              <input id="name" name="name" type="text" placeholder="Jūsu vārds" required />
+              <div id="err-name" class="error" style="display:none">Lūdzu, ievadiet vārdu.</div>
+            </div>
+            <div style="margin-top:10px;">
+              <label for="email">E-pasts</label>
+              <input id="email" name="email" type="email" placeholder="name@example.com" required />
+              <div id="err-email" class="error" style="display:none">Lūdzu, ievadiet derīgu e-pastu.</div>
+            </div>
+            <div style="margin-top:10px;">
+              <label for="message">Ziņa</label>
+              <textarea id="message" name="message" rows="5" placeholder="Jūsu ziņa..." required></textarea>
+              <div id="err-message" class="error" style="display:none">Lūdzu, ievadiet ziņu.</div>
+            </div>
+            <div style="margin-top:12px;">
+              <button type="submit" class="cta">Sūtīt ziņu</button>
+              <div id="form-success" class="success" style="display:none">Paldies! Jūsu ziņa ir saņemta.</div>
+            </div>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Footnote / Juridiska info -->
+    <section class="card" style="text-align:center;">
+      <p style="color:var(--muted); margin:0">GE Equity SIA — reģistrēts uzņēmums. Pakalpojumu saturs var tikt pielāgots pēc pieprasījuma.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>GE Equity SIA</strong><div style="color:var(--muted); font-size:13px">20 Aspazijas bulvāris, Rīga, LV-1050</div>
+      </div>
+      <div style="text-align:right">
+        <div class="socials" style="color:var(--muted); font-size:13px">info@geequity.org</div>
+        <div style="color:var(--muted); font-size:12px; margin-top:8px">© GE Equity SIA — Visas tiesības aizsargātas</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple form validation + simulated submit (phone removed)
+    (function(){
+      const form = document.getElementById('contactForm');
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const message = document.getElementById('message');
+      const errName = document.getElementById('err-name');
+      const errEmail = document.getElementById('err-email');
+      const errMessage = document.getElementById('err-message');
+      const success = document.getElementById('form-success');
+
+      function validateEmail(v){
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        let ok = true;
+        errName.style.display = 'none';
+        errEmail.style.display = 'none';
+        errMessage.style.display = 'none';
+        success.style.display = 'none';
+
+        if(!name.value.trim()){ errName.style.display='block'; ok=false; }
+        if(!validateEmail(email.value.trim())){ errEmail.style.display='block'; ok=false; }
+        if(!message.value.trim()){ errMessage.style.display='block'; ok=false; }
+
+        if(!ok) return;
+
+        // Simulate sending
+        setTimeout(function(){
+          success.style.display = 'block';
+          form.reset();
+          // keep success visible briefly
+          setTimeout(()=>{ success.style.display='none'; }, 6000);
+        }, 800);
+      });
+
+      // Ensure CTA anchors scroll to form correctly in all browsers
+      document.querySelectorAll('a[href="#kontaktu-forma"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          const el = document.getElementById('kontaktu-forma');
+          if(el){
+            el.scrollIntoView({behavior:'smooth', block:'center'});
+            // focus first input
+            setTimeout(()=>{ document.getElementById('name').focus(); }, 500);
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
